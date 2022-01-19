@@ -23,7 +23,9 @@ RUN   yum install -y --nodocs --disableplugin=subscription-manager httpd && \
 # Allows child images to inject their own content into DocumentRoot
 ONBUILD COPY src/ ${DOCROOT}/
 
-EXPOSE 80
+EXPOSE 8080
+
+RUN sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httpd.conf
 
 # This stuff is needed to ensure a clean start
 RUN rm -rf /run/httpd && mkdir /run/httpd

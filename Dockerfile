@@ -30,6 +30,6 @@ RUN rm -rf /run/httpd && mkdir /run/httpd
 
 # Run as the root user
 #USER root
-
+USER 1001
 # Launch httpd
 CMD /usr/sbin/httpd -DFOREGROUND
